@@ -67,6 +67,7 @@ namespace ConsultorioMedico
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(196, 20);
             this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUsuario_KeyDown);
             // 
             // lblSenha
             // 
@@ -87,7 +88,7 @@ namespace ConsultorioMedico
             this.txtSenha.PasswordChar = 'l';
             this.txtSenha.Size = new System.Drawing.Size(196, 20);
             this.txtSenha.TabIndex = 1;
-            this.txtSenha.TextChanged += new System.EventHandler(this.txtSenha_TextChanged);
+            this.txtSenha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSenha_KeyDown);
             // 
             // btnEntrar
             // 
@@ -107,6 +108,7 @@ namespace ConsultorioMedico
             this.btnSair.TabIndex = 3;
             this.btnSair.Text = "Sai&r";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // frmLogin
             // 
@@ -125,7 +127,7 @@ namespace ConsultorioMedico
             this.MaximizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmLogin";
+            this.Text = "Consultório médico";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
             this.ResumeLayout(false);

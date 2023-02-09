@@ -51,6 +51,7 @@ namespace ConsultorioMedico
             this.btnConsultas.Text = "&Consultas";
             this.btnConsultas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnConsultas.UseVisualStyleBackColor = true;
+            this.btnConsultas.Click += new System.EventHandler(this.btnConsultas_Click);
             // 
             // btnMedicos
             // 
@@ -64,6 +65,7 @@ namespace ConsultorioMedico
             this.btnMedicos.Text = "&Médicos";
             this.btnMedicos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnMedicos.UseVisualStyleBackColor = true;
+            this.btnMedicos.Click += new System.EventHandler(this.btnMedicos_Click);
             // 
             // btnPacientes
             // 
@@ -77,6 +79,7 @@ namespace ConsultorioMedico
             this.btnPacientes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPacientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnPacientes.UseVisualStyleBackColor = true;
+            this.btnPacientes.Click += new System.EventHandler(this.btnPacientes_Click);
             // 
             // btnExames
             // 
@@ -90,6 +93,7 @@ namespace ConsultorioMedico
             this.btnExames.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExames.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExames.UseVisualStyleBackColor = true;
+            this.btnExames.Click += new System.EventHandler(this.btnExames_Click);
             // 
             // btnConvenios
             // 
@@ -103,6 +107,7 @@ namespace ConsultorioMedico
             this.btnConvenios.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnConvenios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnConvenios.UseVisualStyleBackColor = true;
+            this.btnConvenios.Click += new System.EventHandler(this.btnConvenios_Click);
             // 
             // btnAgenda
             // 
@@ -116,6 +121,7 @@ namespace ConsultorioMedico
             this.btnAgenda.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAgenda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAgenda.UseVisualStyleBackColor = true;
+            this.btnAgenda.Click += new System.EventHandler(this.btnAgenda_Click);
             // 
             // btnVoltar
             // 
@@ -127,6 +133,7 @@ namespace ConsultorioMedico
             this.btnVoltar.Text = "&Voltar";
             this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // frmMenuPrincipal
             // 
@@ -146,6 +153,7 @@ namespace ConsultorioMedico
             this.Name = "frmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultório médico";
+            this.Load += new System.EventHandler(this.frmMenuPrincipal_Load);
             this.ResumeLayout(false);
 
         }

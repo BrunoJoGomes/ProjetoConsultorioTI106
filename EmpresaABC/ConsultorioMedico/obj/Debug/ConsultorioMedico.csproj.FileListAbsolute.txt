@@ -10,3 +10,9 @@ C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaA
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\Debug\ConsultorioMedico.frmSplash.resources
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\Debug\ConsultorioMedico.frmLogin.resources
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\Debug\ConsultorioMedico.frmMenuPrincipal.resources
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\Debug\ConsultorioMedico.frmConsulta.resources
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\Debug\ConsultorioMedico.frmAgenda.resources
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\Debug\ConsultorioMedico.frmConvenios.resources
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\Debug\ConsultorioMedico.frmExames.resources
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\Debug\ConsultorioMedico.frmMedicos.resources
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\Debug\ConsultorioMedico.frmPacientes.resources

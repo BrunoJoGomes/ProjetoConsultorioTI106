@@ -1,7 +1,7 @@
 ﻿
 namespace ConsultorioMedico
 {
-    partial class frmConsulta
+    partial class frmAgenda
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace ConsultorioMedico
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsulta));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgenda));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@ namespace ConsultorioMedico
             this.panel1.Location = new System.Drawing.Point(0, 474);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(788, 88);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 1;
             // 
             // btnVoltar
             // 
@@ -107,19 +107,19 @@ namespace ConsultorioMedico
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = true;
             // 
-            // frmConsulta
+            // frmAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(780, 557);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "frmConsulta";
+            this.Name = "frmAgenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consultório médico";
-            this.Load += new System.EventHandler(this.frmConsulta_Load);
+            this.Load += new System.EventHandler(this.frmAgenda_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

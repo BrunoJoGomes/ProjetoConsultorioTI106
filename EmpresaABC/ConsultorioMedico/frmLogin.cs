@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Importando bibliotecas 
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,29 +8,79 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
+//Nome do projeto
 namespace ConsultorioMedico
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin : Form  //extendendo classe form
     {
+        //Criando variáveis para controle do menu
+        const int MF_BYCOMMAND = 0X400;
+        [DllImport("user32")]
+        static extern int RemoveMenu(IntPtr hMenu, int nPosition, int wFlags);
+        [DllImport("user32")]
+        static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
+        [DllImport("user32")]
+        static extern int GetMenuItemCount(IntPtr hWnd);
         public frmLogin()
         {
             InitializeComponent();
         }
 
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnEntrar_Click(object sender, EventArgs e)
         {
+            string usuario, senha;
 
+            usuario = txtUsuario.Text;
+            senha = txtSenha.Text;
+
+            if (usuario.Equals("senac") && senha.Equals("senac"))
+            {
+                //Abrir outra janela
+                frmMenuPrincipal abrir = new frmMenuPrincipal();
+                abrir.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Usuário ou senha inválidos!","Aviso do sistema",
+                    MessageBoxButtons.OK,MessageBoxIcon.Error,MessageBoxDefaultButton.Button1);
+                //Limpando a text
+                txtUsuario.Text = "";
+                txtSenha.Clear();
+                txtUsuario.Focus();
+            }
         }
 
-        private void txtSenha_TextChanged(object sender, EventArgs e)
+        private void btnSair_Click(object sender, EventArgs e)
         {
+            //Close(); fecha somente janela
+            //this.Close(); this aponta para propria classe e o ponto acessa subclasse 
+            Application.Exit(); //fecha a aplicação e tudo atrelado a ela
+        }
 
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            IntPtr hMenu = GetSystemMenu(this.Handle, false);
+            int MenuCount = GetMenuItemCount(hMenu) - 1;
+            RemoveMenu(hMenu, MenuCount, MF_BYCOMMAND);
+        }
+
+        private void txtUsuario_KeyDown(object sender, KeyEventArgs e) 
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtSenha.Focus();
+            }
+        }
+
+        private void txtSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnEntrar.Focus();
+            }
         }
     }
 }
