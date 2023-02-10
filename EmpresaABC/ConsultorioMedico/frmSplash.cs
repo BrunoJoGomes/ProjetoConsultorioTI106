@@ -32,5 +32,23 @@ namespace ConsultorioMedico
             int MenuCount = GetMenuItemCount(hMenu) - 1;
             RemoveMenu(hMenu, MenuCount, MF_BYCOMMAND);
         }
+
+        private void tmrSplash_Tick(object sender, EventArgs e)
+        {
+            if (pgbCarregando.Value < 100)
+            {
+                pgbCarregando.Value = pgbCarregando.Value + 2;
+                lblPorcentagem.Text = pgbCarregando.Value.ToString() + "%";
+                lblCarregando.Visible = true;
+            }
+            else
+            {
+                tmrSplash.Enabled = false;
+                frmLogin abrir = new frmLogin();
+                abrir.Show();
+                this.Hide();
+            }
+            
+        }
     }
 }

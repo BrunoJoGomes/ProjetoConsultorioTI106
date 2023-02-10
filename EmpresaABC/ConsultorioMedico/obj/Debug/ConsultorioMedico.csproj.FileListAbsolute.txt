@@ -16,3 +16,5 @@ C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaA
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\Debug\ConsultorioMedico.frmExames.resources
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\Debug\ConsultorioMedico.frmMedicos.resources
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\Debug\ConsultorioMedico.frmPacientes.resources
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\Debug\ConsultorioMedico.frmEspecialidades.resources
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\Debug\ConsultorioMedico.frmPesquisar.resources
