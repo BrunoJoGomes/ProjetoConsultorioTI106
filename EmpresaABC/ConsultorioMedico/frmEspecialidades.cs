@@ -16,5 +16,12 @@ namespace ConsultorioMedico
         {
             InitializeComponent();
         }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            //Abrindo janela de pesquisa
+            frmPesquisar abrir = new frmPesquisar();
+            abrir.Show();
+        }
     }
 }

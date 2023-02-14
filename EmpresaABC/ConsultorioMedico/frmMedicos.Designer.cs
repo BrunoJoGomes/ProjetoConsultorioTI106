@@ -36,7 +36,10 @@ namespace ConsultorioMedico
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.gpbInformacoes = new System.Windows.Forms.GroupBox();
+            this.gpbInformacoesMed = new System.Windows.Forms.GroupBox();
+            this.btnInserir = new System.Windows.Forms.Button();
+            this.mkdTelefone = new System.Windows.Forms.MaskedTextBox();
+            this.mkdCrm = new System.Windows.Forms.MaskedTextBox();
             this.lblTelefone = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -45,11 +48,8 @@ namespace ConsultorioMedico
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCrm = new System.Windows.Forms.Label();
-            this.mkdCrm = new System.Windows.Forms.MaskedTextBox();
-            this.mkdTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.btnInserir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.gpbInformacoes.SuspendLayout();
+            this.gpbInformacoesMed.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -120,26 +120,57 @@ namespace ConsultorioMedico
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = true;
             // 
-            // gpbInformacoes
+            // gpbInformacoesMed
             // 
-            this.gpbInformacoes.Controls.Add(this.btnInserir);
-            this.gpbInformacoes.Controls.Add(this.mkdTelefone);
-            this.gpbInformacoes.Controls.Add(this.mkdCrm);
-            this.gpbInformacoes.Controls.Add(this.lblTelefone);
-            this.gpbInformacoes.Controls.Add(this.txtEmail);
-            this.gpbInformacoes.Controls.Add(this.lblEmail);
-            this.gpbInformacoes.Controls.Add(this.lblEspecialidade);
-            this.gpbInformacoes.Controls.Add(this.cbbEspecialidade);
-            this.gpbInformacoes.Controls.Add(this.txtNome);
-            this.gpbInformacoes.Controls.Add(this.lblNome);
-            this.gpbInformacoes.Controls.Add(this.lblCrm);
-            this.gpbInformacoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbInformacoes.Location = new System.Drawing.Point(31, 22);
-            this.gpbInformacoes.Name = "gpbInformacoes";
-            this.gpbInformacoes.Size = new System.Drawing.Size(702, 435);
-            this.gpbInformacoes.TabIndex = 0;
-            this.gpbInformacoes.TabStop = false;
-            this.gpbInformacoes.Text = "Informações do médico";
+            this.gpbInformacoesMed.Controls.Add(this.btnInserir);
+            this.gpbInformacoesMed.Controls.Add(this.mkdTelefone);
+            this.gpbInformacoesMed.Controls.Add(this.mkdCrm);
+            this.gpbInformacoesMed.Controls.Add(this.lblTelefone);
+            this.gpbInformacoesMed.Controls.Add(this.txtEmail);
+            this.gpbInformacoesMed.Controls.Add(this.lblEmail);
+            this.gpbInformacoesMed.Controls.Add(this.lblEspecialidade);
+            this.gpbInformacoesMed.Controls.Add(this.cbbEspecialidade);
+            this.gpbInformacoesMed.Controls.Add(this.txtNome);
+            this.gpbInformacoesMed.Controls.Add(this.lblNome);
+            this.gpbInformacoesMed.Controls.Add(this.lblCrm);
+            this.gpbInformacoesMed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbInformacoesMed.Location = new System.Drawing.Point(31, 22);
+            this.gpbInformacoesMed.Name = "gpbInformacoesMed";
+            this.gpbInformacoesMed.Size = new System.Drawing.Size(702, 435);
+            this.gpbInformacoesMed.TabIndex = 0;
+            this.gpbInformacoesMed.TabStop = false;
+            this.gpbInformacoesMed.Text = "Informações do médico";
+            // 
+            // btnInserir
+            // 
+            this.btnInserir.BackColor = System.Drawing.SystemColors.Control;
+            this.btnInserir.FlatAppearance.BorderSize = 0;
+            this.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInserir.Image = ((System.Drawing.Image)(resources.GetObject("btnInserir.Image")));
+            this.btnInserir.Location = new System.Drawing.Point(151, 327);
+            this.btnInserir.Name = "btnInserir";
+            this.btnInserir.Size = new System.Drawing.Size(39, 28);
+            this.btnInserir.TabIndex = 6;
+            this.btnInserir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnInserir.UseVisualStyleBackColor = false;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
+            // 
+            // mkdTelefone
+            // 
+            this.mkdTelefone.Location = new System.Drawing.Point(439, 236);
+            this.mkdTelefone.Mask = "(00)00000-0000";
+            this.mkdTelefone.Name = "mkdTelefone";
+            this.mkdTelefone.Size = new System.Drawing.Size(125, 26);
+            this.mkdTelefone.TabIndex = 4;
+            // 
+            // mkdCrm
+            // 
+            this.mkdCrm.Location = new System.Drawing.Point(24, 86);
+            this.mkdCrm.Mask = "00000000";
+            this.mkdCrm.Name = "mkdCrm";
+            this.mkdCrm.Size = new System.Drawing.Size(59, 26);
+            this.mkdCrm.TabIndex = 1;
+            this.mkdCrm.ValidatingType = typeof(int);
             // 
             // lblTelefone
             // 
@@ -218,43 +249,12 @@ namespace ConsultorioMedico
             this.lblCrm.TabIndex = 12;
             this.lblCrm.Text = "CRM";
             // 
-            // mkdCrm
-            // 
-            this.mkdCrm.Location = new System.Drawing.Point(24, 86);
-            this.mkdCrm.Mask = "00000000";
-            this.mkdCrm.Name = "mkdCrm";
-            this.mkdCrm.Size = new System.Drawing.Size(59, 26);
-            this.mkdCrm.TabIndex = 1;
-            this.mkdCrm.ValidatingType = typeof(int);
-            // 
-            // mkdTelefone
-            // 
-            this.mkdTelefone.Location = new System.Drawing.Point(439, 236);
-            this.mkdTelefone.Mask = "(00)00000-0000";
-            this.mkdTelefone.Name = "mkdTelefone";
-            this.mkdTelefone.Size = new System.Drawing.Size(125, 26);
-            this.mkdTelefone.TabIndex = 4;
-            // 
-            // btnInserir
-            // 
-            this.btnInserir.BackColor = System.Drawing.SystemColors.Control;
-            this.btnInserir.FlatAppearance.BorderSize = 0;
-            this.btnInserir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInserir.Image = ((System.Drawing.Image)(resources.GetObject("btnInserir.Image")));
-            this.btnInserir.Location = new System.Drawing.Point(151, 327);
-            this.btnInserir.Name = "btnInserir";
-            this.btnInserir.Size = new System.Drawing.Size(39, 28);
-            this.btnInserir.TabIndex = 6;
-            this.btnInserir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnInserir.UseVisualStyleBackColor = false;
-            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
-            // 
             // frmMedicos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.gpbInformacoes);
+            this.Controls.Add(this.gpbInformacoesMed);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -264,8 +264,8 @@ namespace ConsultorioMedico
             this.Text = "Consultório médico";
             this.Load += new System.EventHandler(this.frmMedicos_Load);
             this.panel1.ResumeLayout(false);
-            this.gpbInformacoes.ResumeLayout(false);
-            this.gpbInformacoes.PerformLayout();
+            this.gpbInformacoesMed.ResumeLayout(false);
+            this.gpbInformacoesMed.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -278,7 +278,7 @@ namespace ConsultorioMedico
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.GroupBox gpbInformacoes;
+        private System.Windows.Forms.GroupBox gpbInformacoesMed;
         private System.Windows.Forms.MaskedTextBox mkdTelefone;
         private System.Windows.Forms.MaskedTextBox mkdCrm;
         private System.Windows.Forms.Label lblTelefone;
