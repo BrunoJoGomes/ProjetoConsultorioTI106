@@ -31,12 +31,27 @@ namespace ConsultorioMedico
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPacientes));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.gpbInformacoes = new System.Windows.Forms.GroupBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.mkdCpf = new System.Windows.Forms.MaskedTextBox();
+            this.lblCpf = new System.Windows.Forms.Label();
+            this.mkdCep = new System.Windows.Forms.MaskedTextBox();
+            this.cbbEstado = new System.Windows.Forms.ComboBox();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.txtCidade = new System.Windows.Forms.TextBox();
+            this.lblCidade = new System.Windows.Forms.Label();
+            this.txtBairro = new System.Windows.Forms.TextBox();
+            this.lblBairro = new System.Windows.Forms.Label();
+            this.lblCep = new System.Windows.Forms.Label();
+            this.txtEndereco = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.mkdTelefone = new System.Windows.Forms.MaskedTextBox();
             this.lblTelefone = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -44,21 +59,7 @@ namespace ConsultorioMedico
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtEndereco = new System.Windows.Forms.TextBox();
-            this.lblCep = new System.Windows.Forms.Label();
-            this.txtBairro = new System.Windows.Forms.TextBox();
-            this.lblBairro = new System.Windows.Forms.Label();
-            this.txtCidade = new System.Windows.Forms.TextBox();
-            this.lblCidade = new System.Windows.Forms.Label();
-            this.lblEstado = new System.Windows.Forms.Label();
-            this.cbbEstado = new System.Windows.Forms.ComboBox();
-            this.mkdCep = new System.Windows.Forms.MaskedTextBox();
-            this.mkdCpf = new System.Windows.Forms.MaskedTextBox();
-            this.lblCpf = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.btnLimpar = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
+            this.btnCarregaEndereco = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.gpbInformacoes.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +77,30 @@ namespace ConsultorioMedico
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(788, 88);
             this.panel1.TabIndex = 1;
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
+            this.btnNovo.Location = new System.Drawing.Point(12, 19);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(96, 43);
+            this.btnNovo.TabIndex = 11;
+            this.btnNovo.Text = "&Novo";
+            this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpar.Image")));
+            this.btnLimpar.Location = new System.Drawing.Point(562, 19);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(96, 43);
+            this.btnLimpar.TabIndex = 16;
+            this.btnLimpar.Text = "&Limpar";
+            this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnVoltar
             // 
@@ -99,6 +124,7 @@ namespace ConsultorioMedico
             this.btnPesquisar.Text = "&Pesquisar";
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnExcluir
             // 
@@ -132,9 +158,11 @@ namespace ConsultorioMedico
             this.btnCadastrar.Text = "&Cadastrar";
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // gpbInformacoes
             // 
+            this.gpbInformacoes.Controls.Add(this.btnCarregaEndereco);
             this.gpbInformacoes.Controls.Add(this.txtCodigo);
             this.gpbInformacoes.Controls.Add(this.mkdCpf);
             this.gpbInformacoes.Controls.Add(this.lblCpf);
@@ -162,6 +190,112 @@ namespace ConsultorioMedico
             this.gpbInformacoes.TabIndex = 0;
             this.gpbInformacoes.TabStop = false;
             this.gpbInformacoes.Text = "Informações do paciente";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(21, 62);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(100, 26);
+            this.txtCodigo.TabIndex = 1;
+            // 
+            // mkdCpf
+            // 
+            this.mkdCpf.Location = new System.Drawing.Point(584, 137);
+            this.mkdCpf.Mask = "000,000,000-00";
+            this.mkdCpf.Name = "mkdCpf";
+            this.mkdCpf.Size = new System.Drawing.Size(120, 26);
+            this.mkdCpf.TabIndex = 5;
+            // 
+            // lblCpf
+            // 
+            this.lblCpf.AutoSize = true;
+            this.lblCpf.Location = new System.Drawing.Point(580, 105);
+            this.lblCpf.Name = "lblCpf";
+            this.lblCpf.Size = new System.Drawing.Size(40, 20);
+            this.lblCpf.TabIndex = 32;
+            this.lblCpf.Text = "CPF";
+            // 
+            // mkdCep
+            // 
+            this.mkdCep.Location = new System.Drawing.Point(615, 222);
+            this.mkdCep.Mask = "00000-000";
+            this.mkdCep.Name = "mkdCep";
+            this.mkdCep.Size = new System.Drawing.Size(89, 26);
+            this.mkdCep.TabIndex = 7;
+            // 
+            // cbbEstado
+            // 
+            this.cbbEstado.FormattingEnabled = true;
+            this.cbbEstado.Location = new System.Drawing.Point(21, 375);
+            this.cbbEstado.Name = "cbbEstado";
+            this.cbbEstado.Size = new System.Drawing.Size(173, 28);
+            this.cbbEstado.TabIndex = 10;
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Location = new System.Drawing.Point(17, 342);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(60, 20);
+            this.lblEstado.TabIndex = 29;
+            this.lblEstado.Text = "Estado";
+            // 
+            // txtCidade
+            // 
+            this.txtCidade.Location = new System.Drawing.Point(443, 297);
+            this.txtCidade.Name = "txtCidade";
+            this.txtCidade.Size = new System.Drawing.Size(271, 26);
+            this.txtCidade.TabIndex = 9;
+            // 
+            // lblCidade
+            // 
+            this.lblCidade.AutoSize = true;
+            this.lblCidade.Location = new System.Drawing.Point(439, 265);
+            this.lblCidade.Name = "lblCidade";
+            this.lblCidade.Size = new System.Drawing.Size(59, 20);
+            this.lblCidade.TabIndex = 27;
+            this.lblCidade.Text = "Cidade";
+            // 
+            // txtBairro
+            // 
+            this.txtBairro.Location = new System.Drawing.Point(21, 297);
+            this.txtBairro.Name = "txtBairro";
+            this.txtBairro.Size = new System.Drawing.Size(236, 26);
+            this.txtBairro.TabIndex = 8;
+            // 
+            // lblBairro
+            // 
+            this.lblBairro.AutoSize = true;
+            this.lblBairro.Location = new System.Drawing.Point(17, 265);
+            this.lblBairro.Name = "lblBairro";
+            this.lblBairro.Size = new System.Drawing.Size(51, 20);
+            this.lblBairro.TabIndex = 25;
+            this.lblBairro.Text = "Bairro";
+            // 
+            // lblCep
+            // 
+            this.lblCep.AutoSize = true;
+            this.lblCep.Location = new System.Drawing.Point(611, 190);
+            this.lblCep.Name = "lblCep";
+            this.lblCep.Size = new System.Drawing.Size(41, 20);
+            this.lblCep.TabIndex = 23;
+            this.lblCep.Text = "CEP";
+            // 
+            // txtEndereco
+            // 
+            this.txtEndereco.Location = new System.Drawing.Point(21, 222);
+            this.txtEndereco.Name = "txtEndereco";
+            this.txtEndereco.Size = new System.Drawing.Size(531, 26);
+            this.txtEndereco.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 190);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 20);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Endereço";
             // 
             // mkdTelefone
             // 
@@ -229,134 +363,15 @@ namespace ConsultorioMedico
             this.lblCodigo.TabIndex = 12;
             this.lblCodigo.Text = "Código";
             // 
-            // label1
+            // btnCarregaEndereco
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 190);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 20);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Endereço";
-            // 
-            // txtEndereco
-            // 
-            this.txtEndereco.Location = new System.Drawing.Point(21, 222);
-            this.txtEndereco.Name = "txtEndereco";
-            this.txtEndereco.Size = new System.Drawing.Size(531, 26);
-            this.txtEndereco.TabIndex = 6;
-            // 
-            // lblCep
-            // 
-            this.lblCep.AutoSize = true;
-            this.lblCep.Location = new System.Drawing.Point(611, 190);
-            this.lblCep.Name = "lblCep";
-            this.lblCep.Size = new System.Drawing.Size(41, 20);
-            this.lblCep.TabIndex = 23;
-            this.lblCep.Text = "CEP";
-            // 
-            // txtBairro
-            // 
-            this.txtBairro.Location = new System.Drawing.Point(21, 297);
-            this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(236, 26);
-            this.txtBairro.TabIndex = 8;
-            // 
-            // lblBairro
-            // 
-            this.lblBairro.AutoSize = true;
-            this.lblBairro.Location = new System.Drawing.Point(17, 265);
-            this.lblBairro.Name = "lblBairro";
-            this.lblBairro.Size = new System.Drawing.Size(51, 20);
-            this.lblBairro.TabIndex = 25;
-            this.lblBairro.Text = "Bairro";
-            // 
-            // txtCidade
-            // 
-            this.txtCidade.Location = new System.Drawing.Point(443, 297);
-            this.txtCidade.Name = "txtCidade";
-            this.txtCidade.Size = new System.Drawing.Size(271, 26);
-            this.txtCidade.TabIndex = 9;
-            // 
-            // lblCidade
-            // 
-            this.lblCidade.AutoSize = true;
-            this.lblCidade.Location = new System.Drawing.Point(439, 265);
-            this.lblCidade.Name = "lblCidade";
-            this.lblCidade.Size = new System.Drawing.Size(59, 20);
-            this.lblCidade.TabIndex = 27;
-            this.lblCidade.Text = "Cidade";
-            // 
-            // lblEstado
-            // 
-            this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(17, 342);
-            this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(60, 20);
-            this.lblEstado.TabIndex = 29;
-            this.lblEstado.Text = "Estado";
-            // 
-            // cbbEstado
-            // 
-            this.cbbEstado.FormattingEnabled = true;
-            this.cbbEstado.Location = new System.Drawing.Point(21, 375);
-            this.cbbEstado.Name = "cbbEstado";
-            this.cbbEstado.Size = new System.Drawing.Size(173, 28);
-            this.cbbEstado.TabIndex = 10;
-            // 
-            // mkdCep
-            // 
-            this.mkdCep.Location = new System.Drawing.Point(615, 222);
-            this.mkdCep.Mask = "00000-000";
-            this.mkdCep.Name = "mkdCep";
-            this.mkdCep.Size = new System.Drawing.Size(89, 26);
-            this.mkdCep.TabIndex = 7;
-            // 
-            // mkdCpf
-            // 
-            this.mkdCpf.Location = new System.Drawing.Point(584, 137);
-            this.mkdCpf.Mask = "000,000,000-00";
-            this.mkdCpf.Name = "mkdCpf";
-            this.mkdCpf.Size = new System.Drawing.Size(120, 26);
-            this.mkdCpf.TabIndex = 5;
-            // 
-            // lblCpf
-            // 
-            this.lblCpf.AutoSize = true;
-            this.lblCpf.Location = new System.Drawing.Point(580, 105);
-            this.lblCpf.Name = "lblCpf";
-            this.lblCpf.Size = new System.Drawing.Size(40, 20);
-            this.lblCpf.TabIndex = 32;
-            this.lblCpf.Text = "CPF";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(21, 62);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 26);
-            this.txtCodigo.TabIndex = 1;
-            // 
-            // btnLimpar
-            // 
-            this.btnLimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpar.Image")));
-            this.btnLimpar.Location = new System.Drawing.Point(562, 19);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(96, 43);
-            this.btnLimpar.TabIndex = 16;
-            this.btnLimpar.Text = "&Limpar";
-            this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Image = ((System.Drawing.Image)(resources.GetObject("btnNovo.Image")));
-            this.btnNovo.Location = new System.Drawing.Point(12, 19);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(96, 43);
-            this.btnNovo.TabIndex = 11;
-            this.btnNovo.Text = "&Novo";
-            this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            this.btnCarregaEndereco.Location = new System.Drawing.Point(497, 395);
+            this.btnCarregaEndereco.Name = "btnCarregaEndereco";
+            this.btnCarregaEndereco.Size = new System.Drawing.Size(161, 32);
+            this.btnCarregaEndereco.TabIndex = 33;
+            this.btnCarregaEndereco.Text = "Carrega endereço";
+            this.btnCarregaEndereco.UseVisualStyleBackColor = true;
+            this.btnCarregaEndereco.Click += new System.EventHandler(this.btnCarregaEndereco_Click);
             // 
             // frmPacientes
             // 
@@ -410,5 +425,6 @@ namespace ConsultorioMedico
         private System.Windows.Forms.Label lblCpf;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnCarregaEndereco;
     }
 }

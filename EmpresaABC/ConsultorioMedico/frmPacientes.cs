@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+//importando p janela do projeto a biblioteca dos correios
+using Correios.Net;
 
 namespace ConsultorioMedico
 {
@@ -56,10 +58,37 @@ namespace ConsultorioMedico
             btnCadastrar.Enabled = true;
             txtNome.Focus();
         }
+
+        public void limparCampos()
+        {
+            txtNome.Clear();
+            txtBairro.Clear();
+            txtCidade.Clear();
+            txtEmail.Clear();
+            txtEndereco.Clear();
+            mkdCpf.Clear();
+            mkdTelefone.Clear();
+            cbbEstado.Text = "";
+            mkdCep.Clear();
+        }
+
+        //metodo para carregar combobox
+        public void carregarComboBox()
+        {
+            cbbEstado.Items.Add("");
+            cbbEstado.Items.Add("SP");
+            cbbEstado.Items.Add("RJ");
+            cbbEstado.Items.Add("BH");
+            cbbEstado.Items.Add("BA");
+            cbbEstado.Items.Add("RN");
+        }
+
+        //Construtor da classe
         public frmPacientes()
         {
             InitializeComponent();
             desabilitarCampos();
+            carregarComboBox();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
@@ -80,5 +109,75 @@ namespace ConsultorioMedico
         {
             habilitarCampos();
         }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            frmPesquisar pesquisar = new frmPesquisar();
+            pesquisar.ShowDialog();
+
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            //executando o metodo verificarCampo
+            verificarCampo();
+        }
+
+        //criando metodo para verificar campos vazios
+        public void verificarCampo()
+        {
+            /* if (txtNome.Text == "")
+            {
+                MessageBox.Show("Favor inserir valores");
+            }
+            else if (txtEmail.Text == "")
+            {
+                MessageBox.Show("Favor inserir valores");
+            } */
+
+            if (txtNome.Text.Equals("") || txtEmail.Text.Equals("") 
+               || mkdCpf.Text.Equals("   .   .   -") || mkdTelefone.Text.Equals("(  )     -")
+               || mkdCep.Text.Equals("     -") || txtEndereco.Text.Equals("") 
+               || txtCidade.Text.Equals("") || txtBairro.Text.Equals("") 
+               || cbbEstado.Text.Equals(""))
+            {
+                MessageBox.Show("Favor inserir valores",
+                    "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);
+                txtNome.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Cadastrado com sucesso!",
+                    "Mensagem do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1);
+                desabilitarCampos();
+                limparCampos();
+            }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limparCampos();
+            txtNome.Focus();
+        }
+
+        //Instanciando a classe correios.net
+        //Address endereco = new Address();
+        private void btnCarregaEndereco_Click(object sender, EventArgs e)
+        {
+            Address add;
+            add = SearchZip.GetAddress(mkdCep.Text, 1000);
+
+            txtEndereco.Text = add.Street;
+            txtBairro.Text = add.District;
+            txtCidade.Text = add.City;
+            cbbEstado.Text = add.State;
+        }
+
     }
 }
