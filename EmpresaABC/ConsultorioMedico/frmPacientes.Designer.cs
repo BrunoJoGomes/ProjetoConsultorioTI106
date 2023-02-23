@@ -59,7 +59,10 @@ namespace ConsultorioMedico
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.btnCarregaEndereco = new System.Windows.Forms.Button();
+            this.lblNum = new System.Windows.Forms.Label();
+            this.lblComplemento = new System.Windows.Forms.Label();
+            this.txtNum = new System.Windows.Forms.TextBox();
+            this.txtComplemento = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.gpbInformacoes.SuspendLayout();
             this.SuspendLayout();
@@ -162,7 +165,10 @@ namespace ConsultorioMedico
             // 
             // gpbInformacoes
             // 
-            this.gpbInformacoes.Controls.Add(this.btnCarregaEndereco);
+            this.gpbInformacoes.Controls.Add(this.txtComplemento);
+            this.gpbInformacoes.Controls.Add(this.txtNum);
+            this.gpbInformacoes.Controls.Add(this.lblComplemento);
+            this.gpbInformacoes.Controls.Add(this.lblNum);
             this.gpbInformacoes.Controls.Add(this.txtCodigo);
             this.gpbInformacoes.Controls.Add(this.mkdCpf);
             this.gpbInformacoes.Controls.Add(this.lblCpf);
@@ -205,6 +211,7 @@ namespace ConsultorioMedico
             this.mkdCpf.Name = "mkdCpf";
             this.mkdCpf.Size = new System.Drawing.Size(120, 26);
             this.mkdCpf.TabIndex = 5;
+            this.mkdCpf.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mkdCpf_KeyDown);
             // 
             // lblCpf
             // 
@@ -217,16 +224,17 @@ namespace ConsultorioMedico
             // 
             // mkdCep
             // 
-            this.mkdCep.Location = new System.Drawing.Point(615, 222);
-            this.mkdCep.Mask = "00000-000";
+            this.mkdCep.Location = new System.Drawing.Point(306, 297);
+            this.mkdCep.Mask = "00000000";
             this.mkdCep.Name = "mkdCep";
-            this.mkdCep.Size = new System.Drawing.Size(89, 26);
+            this.mkdCep.Size = new System.Drawing.Size(77, 26);
             this.mkdCep.TabIndex = 7;
+            this.mkdCep.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mkdCep_KeyDown);
             // 
             // cbbEstado
             // 
             this.cbbEstado.FormattingEnabled = true;
-            this.cbbEstado.Location = new System.Drawing.Point(21, 375);
+            this.cbbEstado.Location = new System.Drawing.Point(531, 379);
             this.cbbEstado.Name = "cbbEstado";
             this.cbbEstado.Size = new System.Drawing.Size(173, 28);
             this.cbbEstado.TabIndex = 10;
@@ -234,7 +242,7 @@ namespace ConsultorioMedico
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(17, 342);
+            this.lblEstado.Location = new System.Drawing.Point(527, 346);
             this.lblEstado.Name = "lblEstado";
             this.lblEstado.Size = new System.Drawing.Size(60, 20);
             this.lblEstado.TabIndex = 29;
@@ -242,7 +250,7 @@ namespace ConsultorioMedico
             // 
             // txtCidade
             // 
-            this.txtCidade.Location = new System.Drawing.Point(443, 297);
+            this.txtCidade.Location = new System.Drawing.Point(21, 381);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(271, 26);
             this.txtCidade.TabIndex = 9;
@@ -250,7 +258,7 @@ namespace ConsultorioMedico
             // lblCidade
             // 
             this.lblCidade.AutoSize = true;
-            this.lblCidade.Location = new System.Drawing.Point(439, 265);
+            this.lblCidade.Location = new System.Drawing.Point(17, 349);
             this.lblCidade.Name = "lblCidade";
             this.lblCidade.Size = new System.Drawing.Size(59, 20);
             this.lblCidade.TabIndex = 27;
@@ -275,7 +283,7 @@ namespace ConsultorioMedico
             // lblCep
             // 
             this.lblCep.AutoSize = true;
-            this.lblCep.Location = new System.Drawing.Point(611, 190);
+            this.lblCep.Location = new System.Drawing.Point(302, 265);
             this.lblCep.Name = "lblCep";
             this.lblCep.Size = new System.Drawing.Size(41, 20);
             this.lblCep.TabIndex = 23;
@@ -363,15 +371,37 @@ namespace ConsultorioMedico
             this.lblCodigo.TabIndex = 12;
             this.lblCodigo.Text = "Código";
             // 
-            // btnCarregaEndereco
+            // lblNum
             // 
-            this.btnCarregaEndereco.Location = new System.Drawing.Point(497, 395);
-            this.btnCarregaEndereco.Name = "btnCarregaEndereco";
-            this.btnCarregaEndereco.Size = new System.Drawing.Size(161, 32);
-            this.btnCarregaEndereco.TabIndex = 33;
-            this.btnCarregaEndereco.Text = "Carrega endereço";
-            this.btnCarregaEndereco.UseVisualStyleBackColor = true;
-            this.btnCarregaEndereco.Click += new System.EventHandler(this.btnCarregaEndereco_Click);
+            this.lblNum.AutoSize = true;
+            this.lblNum.Location = new System.Drawing.Point(600, 185);
+            this.lblNum.Name = "lblNum";
+            this.lblNum.Size = new System.Drawing.Size(65, 20);
+            this.lblNum.TabIndex = 33;
+            this.lblNum.Text = "Número";
+            // 
+            // lblComplemento
+            // 
+            this.lblComplemento.AutoSize = true;
+            this.lblComplemento.Location = new System.Drawing.Point(580, 265);
+            this.lblComplemento.Name = "lblComplemento";
+            this.lblComplemento.Size = new System.Drawing.Size(108, 20);
+            this.lblComplemento.TabIndex = 34;
+            this.lblComplemento.Text = "Complemento";
+            // 
+            // txtNum
+            // 
+            this.txtNum.Location = new System.Drawing.Point(604, 222);
+            this.txtNum.Name = "txtNum";
+            this.txtNum.Size = new System.Drawing.Size(100, 26);
+            this.txtNum.TabIndex = 35;
+            // 
+            // txtComplemento
+            // 
+            this.txtComplemento.Location = new System.Drawing.Point(584, 297);
+            this.txtComplemento.Name = "txtComplemento";
+            this.txtComplemento.Size = new System.Drawing.Size(120, 26);
+            this.txtComplemento.TabIndex = 36;
             // 
             // frmPacientes
             // 
@@ -425,6 +455,9 @@ namespace ConsultorioMedico
         private System.Windows.Forms.Label lblCpf;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnLimpar;
-        private System.Windows.Forms.Button btnCarregaEndereco;
+        private System.Windows.Forms.TextBox txtComplemento;
+        private System.Windows.Forms.TextBox txtNum;
+        private System.Windows.Forms.Label lblComplemento;
+        private System.Windows.Forms.Label lblNum;
     }
 }

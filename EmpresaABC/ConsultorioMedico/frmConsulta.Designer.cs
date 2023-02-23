@@ -36,6 +36,7 @@ namespace ConsultorioMedico
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnConecta = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,11 +108,22 @@ namespace ConsultorioMedico
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrar.UseVisualStyleBackColor = true;
             // 
+            // btnConecta
+            // 
+            this.btnConecta.Location = new System.Drawing.Point(243, 177);
+            this.btnConecta.Name = "btnConecta";
+            this.btnConecta.Size = new System.Drawing.Size(353, 141);
+            this.btnConecta.TabIndex = 1;
+            this.btnConecta.Text = "Testando conexão com o banco de dados";
+            this.btnConecta.UseVisualStyleBackColor = true;
+            this.btnConecta.Click += new System.EventHandler(this.btnConecta_Click);
+            // 
             // frmConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.btnConecta);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -133,5 +145,6 @@ namespace ConsultorioMedico
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnConecta;
     }
 }

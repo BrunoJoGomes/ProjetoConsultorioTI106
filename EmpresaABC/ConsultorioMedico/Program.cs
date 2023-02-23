@@ -16,7 +16,7 @@ namespace ConsultorioMedico
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPacientes());
+            Application.Run(new frmConsulta());
         }
     }
 }

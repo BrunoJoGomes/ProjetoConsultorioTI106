@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-//importando p janela do projeto a biblioteca dos correios
-using Correios.Net;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace ConsultorioMedico
 {
@@ -40,6 +40,8 @@ namespace ConsultorioMedico
             btnAlterar.Enabled = false;
             btnExcluir.Enabled = false;
             btnLimpar.Enabled = false;
+            txtNum.Enabled = false;
+            txtComplemento.Enabled = false;
 
         }
 
@@ -56,6 +58,8 @@ namespace ConsultorioMedico
             mkdCep.Enabled = true;
             btnLimpar.Enabled = true;
             btnCadastrar.Enabled = true;
+            txtComplemento.Enabled = true;
+            txtNum.Enabled = true;
             txtNome.Focus();
         }
 
@@ -108,6 +112,7 @@ namespace ConsultorioMedico
         private void btnNovo_Click(object sender, EventArgs e)
         {
             habilitarCampos();
+            btnNovo.Enabled = false;
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -155,8 +160,8 @@ namespace ConsultorioMedico
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information,
                     MessageBoxDefaultButton.Button1);
-                desabilitarCampos();
-                limparCampos();
+                    desabilitarCampos();
+                    limparCampos();
             }
         }
 
@@ -166,18 +171,156 @@ namespace ConsultorioMedico
             txtNome.Focus();
         }
 
-        //Instanciando a classe correios.net
-        //Address endereco = new Address();
-        private void btnCarregaEndereco_Click(object sender, EventArgs e)
+        public void buscaCEP(string cep)
         {
-            Address add;
-            add = SearchZip.GetAddress(mkdCep.Text, 1000);
+            WSCorreios.AtendeClienteClient ws = new WSCorreios.AtendeClienteClient();
 
-            txtEndereco.Text = add.Street;
-            txtBairro.Text = add.District;
-            txtCidade.Text = add.City;
-            cbbEstado.Text = add.State;
+            try
+            {
+                WSCorreios.enderecoERP end = ws.consultaCEP(cep);
+
+                txtEndereco.Text = end.end;
+                txtBairro.Text = end.bairro;
+                txtCidade.Text = end.cidade;
+                cbbEstado.Text = end.uf;
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Insira CEP válido",
+                    "Mensagem do Sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1);
+                mkdCep.Clear();
+                mkdCep.Focus();
+            }
         }
 
+        public static bool validaEmail(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+                return false;
+
+            try
+            {
+                email = Regex.Replace(email, @"(@)(.+)$", DomainMapper,
+                    RegexOptions.None, TimeSpan.FromMilliseconds(200));
+
+                string DomainMapper(Match match)
+                {
+                    var idn = new IdnMapping();
+
+                    string domainName = idn.GetAscii(match.Groups[2].Value);
+
+                    return match.Groups[1].Value + domainName;
+                }
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
+            catch (ArgumentException)
+            {
+                return false;
+            }
+            try
+            {
+                return Regex.IsMatch(email,
+                    @"^[^@\s]+@[^@\s+\.[^@\s]+$",
+                    RegexOptions.IgnoreCase,
+                    TimeSpan.FromMilliseconds(250));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
+        }
+
+        public static bool validaCPF(string vrCPF)
+        {
+            string valor = vrCPF.Replace(".","");
+            
+            valor = valor.Replace("-","");
+
+            if (valor.Length != 11)
+                return false;
+
+            bool igual = true;
+
+            for (int i = 1; i < 11 && igual; i++)
+                if (valor[i] != valor[0])
+                    igual = false;
+
+            if (igual || valor == "12345678909")
+                return false;
+
+            int[] numeros = new int[11];
+
+            for (int i = 0; i < 11; i++)
+                numeros[i] = int.Parse(
+                    valor[i].ToString());
+
+            int soma = 0;
+
+            for (int i = 0; i < 9; i++)
+                soma += (10 - i) * numeros[i];
+
+            int resultado = soma % 11;
+
+            if (resultado == 1 || resultado == 00)
+            {
+                if (numeros[9] != 0)
+                    return false;
+            }
+            else if (numeros[9] != 11 - resultado)
+                return false;
+
+            soma = 0;
+
+            for (int i = 0; i < 10; i++)
+                soma += (11 - i) * numeros[i];
+
+            resultado = soma % 11;
+
+            if (resultado == 1 || resultado == 0)
+            {
+                if (numeros[10] != 0)
+                    return false;
+            }
+            else if (numeros[10] != 11 - resultado)
+                return false;
+            return true;
+        }
+
+        private void mkdCep_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
+            {
+                buscaCEP(mkdCep.Text);
+            }
+        }
+
+        private void mkdCpf_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                bool valida = validaCPF(mkdCpf.Text);
+
+                if(valida == true)
+                {
+                    mkdCep.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Insira CPF válido",
+                        "Mensagem do Sistema",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1);
+                    mkdCpf.Clear();
+                    mkdCpf.Focus();
+                }
+            }
+        }
     }
 }

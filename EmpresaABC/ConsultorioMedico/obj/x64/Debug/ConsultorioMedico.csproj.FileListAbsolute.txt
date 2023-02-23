@@ -19,7 +19,6 @@ C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaA
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\x64\Debug\ConsultorioMedico.pdb
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\x64\Debug\ConsultorioMedico.csproj.AssemblyReference.cache
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\AngleSharp.dll
-C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\Correios.Net.dll
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\Microsoft.Extensions.DependencyInjection.dll
@@ -38,7 +37,6 @@ C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaA
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\System.ValueTuple.dll
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\AngleSharp.xml
-C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\Correios.Net.pdb
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\Microsoft.Bcl.AsyncInterfaces.xml
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\Microsoft.Extensions.DependencyInjection.xml
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
@@ -57,3 +55,17 @@ C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaA
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\System.ValueTuple.xml
 C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\obj\x64\Debug\ConsultorioMedico.csproj.CopyComplete
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\BouncyCastle.Crypto.dll
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\Google.Protobuf.dll
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\K4os.Compression.LZ4.dll
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\K4os.Hash.xxHash.dll
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\MySql.Data.dll
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\ZstdNet.dll
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\BouncyCastle.Crypto.xml
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\Google.Protobuf.pdb
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\Google.Protobuf.xml
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\K4os.Compression.LZ4.xml
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\K4os.Hash.xxHash.xml
+C:\Users\bruno.jogomes\Documents\Visual Studio 2019\ProjetoSistemaTI106\EmpresaABC\ConsultorioMedico\bin\x64\Debug\MySql.Data.xml
