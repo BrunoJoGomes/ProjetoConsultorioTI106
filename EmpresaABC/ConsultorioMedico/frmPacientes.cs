@@ -96,6 +96,43 @@ namespace ConsultorioMedico
             carregarComboBox();
         }
 
+        //criando construtor com parametros
+        public frmPacientes(string nome)
+        {
+            InitializeComponent();
+            desabilitarCampos();
+            carregarComboBox();
+            //txtNome.Text = nome;
+            pesquisarCampo(nome);
+        }
+        public void pesquisarCampo(string nome)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbpaciente where nome = '"+nome+"';";
+            comm.CommandType = CommandType.Text;
+
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+            DR.Read();
+
+            txtNome.Text = nome;
+            txtCodigo.Text = Convert.ToString(DR.GetInt32(0));
+            txtEmail.Text = DR.GetString(2);
+            mkdTelefone.Text = DR.GetString(3);
+            mkdCpf.Text = DR.GetString(4);
+            txtEndereco.Text = DR.GetString(5);
+            txtNum.Text = DR.GetString(6);
+            mkdCep.Text = DR.GetString(7);
+            txtComplemento.Text = DR.GetString(8);
+            txtBairro.Text = DR.GetString(9);
+            txtCidade.Text = DR.GetString(10);
+            cbbEstado.Text = DR.GetString(11);
+
+            Conexao.fecharConexao();
+        }
+
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             frmMenuPrincipal menu = new frmMenuPrincipal();

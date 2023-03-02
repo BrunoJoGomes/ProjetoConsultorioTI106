@@ -119,6 +119,7 @@ namespace ConsultorioMedico
             this.rdbNome.TabIndex = 6;
             this.rdbNome.Text = "Nome";
             this.rdbNome.UseVisualStyleBackColor = true;
+            this.rdbNome.CheckedChanged += new System.EventHandler(this.rdbNome_CheckedChanged);
             // 
             // rdbCodigo
             // 

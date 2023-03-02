@@ -39,6 +39,10 @@ namespace ConsultorioMedico
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.gpbInformacoes = new System.Windows.Forms.GroupBox();
+            this.txtComplemento = new System.Windows.Forms.TextBox();
+            this.txtNum = new System.Windows.Forms.TextBox();
+            this.lblComplemento = new System.Windows.Forms.Label();
+            this.lblNum = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.mkdCpf = new System.Windows.Forms.MaskedTextBox();
             this.lblCpf = new System.Windows.Forms.Label();
@@ -59,10 +63,6 @@ namespace ConsultorioMedico
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.lblNum = new System.Windows.Forms.Label();
-            this.lblComplemento = new System.Windows.Forms.Label();
-            this.txtNum = new System.Windows.Forms.TextBox();
-            this.txtComplemento = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.gpbInformacoes.SuspendLayout();
             this.SuspendLayout();
@@ -196,6 +196,38 @@ namespace ConsultorioMedico
             this.gpbInformacoes.TabIndex = 0;
             this.gpbInformacoes.TabStop = false;
             this.gpbInformacoes.Text = "Informações do paciente";
+            // 
+            // txtComplemento
+            // 
+            this.txtComplemento.Location = new System.Drawing.Point(584, 297);
+            this.txtComplemento.Name = "txtComplemento";
+            this.txtComplemento.Size = new System.Drawing.Size(120, 26);
+            this.txtComplemento.TabIndex = 36;
+            // 
+            // txtNum
+            // 
+            this.txtNum.Location = new System.Drawing.Point(604, 222);
+            this.txtNum.Name = "txtNum";
+            this.txtNum.Size = new System.Drawing.Size(100, 26);
+            this.txtNum.TabIndex = 35;
+            // 
+            // lblComplemento
+            // 
+            this.lblComplemento.AutoSize = true;
+            this.lblComplemento.Location = new System.Drawing.Point(580, 265);
+            this.lblComplemento.Name = "lblComplemento";
+            this.lblComplemento.Size = new System.Drawing.Size(108, 20);
+            this.lblComplemento.TabIndex = 34;
+            this.lblComplemento.Text = "Complemento";
+            // 
+            // lblNum
+            // 
+            this.lblNum.AutoSize = true;
+            this.lblNum.Location = new System.Drawing.Point(600, 185);
+            this.lblNum.Name = "lblNum";
+            this.lblNum.Size = new System.Drawing.Size(65, 20);
+            this.lblNum.TabIndex = 33;
+            this.lblNum.Text = "Número";
             // 
             // txtCodigo
             // 
@@ -370,38 +402,6 @@ namespace ConsultorioMedico
             this.lblCodigo.Size = new System.Drawing.Size(59, 20);
             this.lblCodigo.TabIndex = 12;
             this.lblCodigo.Text = "Código";
-            // 
-            // lblNum
-            // 
-            this.lblNum.AutoSize = true;
-            this.lblNum.Location = new System.Drawing.Point(600, 185);
-            this.lblNum.Name = "lblNum";
-            this.lblNum.Size = new System.Drawing.Size(65, 20);
-            this.lblNum.TabIndex = 33;
-            this.lblNum.Text = "Número";
-            // 
-            // lblComplemento
-            // 
-            this.lblComplemento.AutoSize = true;
-            this.lblComplemento.Location = new System.Drawing.Point(580, 265);
-            this.lblComplemento.Name = "lblComplemento";
-            this.lblComplemento.Size = new System.Drawing.Size(108, 20);
-            this.lblComplemento.TabIndex = 34;
-            this.lblComplemento.Text = "Complemento";
-            // 
-            // txtNum
-            // 
-            this.txtNum.Location = new System.Drawing.Point(604, 222);
-            this.txtNum.Name = "txtNum";
-            this.txtNum.Size = new System.Drawing.Size(100, 26);
-            this.txtNum.TabIndex = 35;
-            // 
-            // txtComplemento
-            // 
-            this.txtComplemento.Location = new System.Drawing.Point(584, 297);
-            this.txtComplemento.Name = "txtComplemento";
-            this.txtComplemento.Size = new System.Drawing.Size(120, 26);
-            this.txtComplemento.TabIndex = 36;
             // 
             // frmPacientes
             // 
