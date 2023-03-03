@@ -75,6 +75,8 @@ namespace ConsultorioMedico
             mkdTelefone.Clear();
             cbbEstado.Text = "";
             mkdCep.Clear();
+            txtComplemento.Clear();
+            txtNum.Clear();
         }
 
         //metodo para carregar combobox
@@ -96,6 +98,10 @@ namespace ConsultorioMedico
             carregarComboBox();
         }
 
+       //string nome = "";
+        //bool flag = false;
+
+
         //criando construtor com parametros
         public frmPacientes(string nome)
         {
@@ -104,7 +110,21 @@ namespace ConsultorioMedico
             carregarComboBox();
             //txtNome.Text = nome;
             pesquisarCampo(nome);
+            habilitarCampos();
+            //flag = true;
+            ativarUpdate();
+            
         }
+
+        public void ativarUpdate()
+        {
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            btnNovo.Enabled = false;
+            btnCadastrar.Enabled = false;
+            btnLimpar.Enabled = false;
+        }
+
         public void pesquisarCampo(string nome)
         {
             MySqlCommand comm = new MySqlCommand();
@@ -157,6 +177,7 @@ namespace ConsultorioMedico
         {
             frmPesquisar pesquisar = new frmPesquisar();
             pesquisar.ShowDialog();
+            this.Hide();
 
         }
 
@@ -392,6 +413,76 @@ namespace ConsultorioMedico
                     mkdCpf.Focus();
                 }
             }
+        }
+
+        public void alterarPaciente(int codPac)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "update tbPaciente set nome = @nome,email = @email,telefone = @telefone,cpf = @cpf," +
+                "endereco = @endereco,numero = @numero,cep = @cep,complemento= @complemento,bairro = @bairro,cidade = @cidade," +
+                "siglaEstado = @siglaEstado where codpac ="+codPac+";";
+            comm.CommandType = CommandType.Text;
+            comm.Connection = Conexao.obterConexao();
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
+            comm.Parameters.Add("@email", MySqlDbType.VarChar, 100).Value = txtEmail.Text;
+            comm.Parameters.Add("@telefone", MySqlDbType.VarChar, 14).Value = mkdTelefone.Text;
+            comm.Parameters.Add("@cpf", MySqlDbType.VarChar, 14).Value = mkdCpf.Text;
+            comm.Parameters.Add("@endereco", MySqlDbType.VarChar, 100).Value = txtEndereco.Text;
+            comm.Parameters.Add("@numero", MySqlDbType.VarChar, 10).Value = txtNum.Text;
+            comm.Parameters.Add("@cep", MySqlDbType.VarChar, 8).Value = mkdCep.Text;
+            comm.Parameters.Add("@complemento", MySqlDbType.VarChar, 50).Value = txtComplemento.Text;
+            comm.Parameters.Add("@bairro", MySqlDbType.VarChar, 50).Value = txtBairro.Text;
+            comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
+            comm.Parameters.Add("@siglaEstado", MySqlDbType.VarChar, 2).Value = cbbEstado.Text;
+
+            int res = comm.ExecuteNonQuery();
+            MessageBox.Show("Registro alterado com sucesso."+res);
+            Conexao.fecharConexao();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            alterarPaciente(Convert.ToInt32(txtCodigo.Text));
+        }
+
+        public void excluirPaciente(int codPac)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "delete from tbPaciente where codPac = "+codPac+";";
+            comm.CommandType = CommandType.Text;
+
+            comm.Connection = Conexao.obterConexao();
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@codPac", MySqlDbType.VarChar, 100).Value = codPac;
+
+
+            DialogResult vresp = MessageBox.Show("Deseja realizar a exclusão?", "Mensagem do Sistema", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+            if(vresp == DialogResult.Yes)
+            {
+                int res = comm.ExecuteNonQuery();
+                MessageBox.Show("Registro excluído com sucesso" + res);
+            }
+            else
+            {
+
+            }
+
+            Conexao.fecharConexao();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            int codPac = Convert.ToInt32(txtCodigo.Text);
+            excluirPaciente(codPac);
+            limparCampos();
+            txtCodigo.Text = "";
+            desabilitarCampos();
+         
         }
     }
 }
